@@ -1,0 +1,1209 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Oto Rekor - Beypazarı Hidrolik & Hortum Presleme | Ercan Küren</title>
+    <meta name="description" content="Beypazarı Oto Rekor: Hidrolik hortum presleme, klima ve direksiyon hortumları, iş makinesi hortum tamir servisi. Ercan Küren.">
+    <meta name="keywords" content="Oto Rekor, Beypazarı Oto Rekor, Beypazarı hidrolik hortum, Ercan Küren">
+    <!-- FontAwesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #181b20;
+            --accent-color: #ff9800; /* Sanayi Turuncusu */
+            --accent-hover: #e68a00;
+            --text-color: #ffffff;
+            --text-muted: #a0a6b1;
+            --green-color: #25d366;
+            --red-color: #ff3333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* HEADER & LOGO */
+        header {
+            background-color: rgba(24, 27, 32, 0.98);
+            padding: 0.8rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            height: 140px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .logo-img {
+            height: 120px;
+            max-width: 320px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* HEADER ORTA ALAN */
+        .header-middle {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+        }
+
+            .nav-links a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: color 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: var(--accent-color);
+                }
+
+        /* DİNAMİK CANLI DURUM KUTUSU */
+        .header-status-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #111317;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #2a2e35;
+        }
+
+            .header-status-box i {
+                font-size: 1.4rem;
+                color: var(--accent-color);
+            }
+
+        .header-status-text strong {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+        }
+
+        .header-status-text span {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* HEADER KONUM BUTONU */
+        .header-map-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 152, 0, 0.1);
+            color: var(--accent-color);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+            .header-map-btn:hover {
+                background: var(--accent-color);
+                color: #000;
+            }
+
+        /* BİZİ ARAYIN BUTONU */
+        .contact-btn {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 0.8rem 1.6rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(255, 152, 0, 0.2);
+        }
+
+            .contact-btn:hover {
+                background-color: var(--accent-hover);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(255, 152, 0, 0.3);
+            }
+
+        /* SLIDER */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .slide.active {
+                opacity: 1;
+            }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(15,17,21,0.9), rgba(15,17,21,0.5));
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+
+            .slide-content h1 {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+                color: #fff;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            }
+
+            .slide-content p {
+                font-size: 1.2rem;
+                color: var(--text-muted);
+                margin-bottom: 25px;
+            }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.6);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            font-size: 20px;
+            padding: 12px 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+            .prev:hover, .next:hover {
+                background-color: var(--accent-color);
+                color: #000;
+            }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* İSTATİSTİK & GÜVEN BANDI */
+        .stats-section {
+            background-color: var(--card-bg);
+            padding: 2.5rem 5%;
+            border-bottom: 1px solid #2a2e35;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* HİZMETLERİMİZ */
+        .services {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--accent-color);
+            position: relative;
+        }
+
+            .section-title::after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 3px;
+                background-color: var(--accent-color);
+                margin: 10px auto 0;
+                border-radius: 2px;
+            }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #2a2e35;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+            .card:hover {
+                transform: translateY(-8px);
+                border-color: var(--accent-color);
+                box-shadow: 0 10px 20px rgba(255, 152, 0, 0.1);
+            }
+
+            .card i {
+                font-size: 2.8rem;
+                color: var(--accent-color);
+                margin-bottom: 1.2rem;
+            }
+
+            .card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .card p {
+                color: var(--text-muted);
+                font-size: 0.95rem;
+            }
+
+        /* ÇALIŞMA SAATLERİ ALANI */
+        .hours-section {
+            background-color: var(--card-bg);
+            padding: 4rem 5%;
+            border-top: 1px solid #2a2e35;
+        }
+
+        .hours-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #111317;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #2a2e35;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background-color: #181b20;
+            border: 1px solid #262a33;
+            transition: all 0.3s;
+        }
+
+            .hours-row.is-today {
+                border-color: var(--accent-color);
+                box-shadow: 0 0 10px rgba(255, 152, 0, 0.2);
+                background-color: rgba(255, 152, 0, 0.05);
+            }
+
+            .hours-row.sunday {
+                border-color: rgba(255, 51, 51, 0.3);
+                background-color: rgba(255, 51, 51, 0.05);
+            }
+
+        .day-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .badge-open {
+            background-color: rgba(37, 211, 102, 0.2);
+            color: var(--green-color);
+            border: 1px solid var(--green-color);
+        }
+
+        .badge-closed {
+            background-color: rgba(255, 51, 51, 0.2);
+            color: var(--red-color);
+            border: 1px solid var(--red-color);
+        }
+
+        .badge-today {
+            background-color: var(--accent-color);
+            color: #000;
+            margin-left: 8px;
+        }
+
+        /* MODERN HARİTA VE KONUM BÖLÜMÜ (YENİ) */
+        .map-section {
+            padding: 4rem 5%;
+            background-color: var(--bg-color);
+            border-top: 1px solid #2a2e35;
+            border-bottom: 1px solid #2a2e35;
+        }
+
+        .map-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #2a2e35;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .map-info-side {
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .map-info-side h3 {
+                font-size: 1.8rem;
+                color: #fff;
+                margin-bottom: 15px;
+            }
+
+        .map-address-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+            .map-address-text i {
+                color: var(--accent-color);
+                font-size: 1.4rem;
+                margin-top: 3px;
+            }
+
+        .map-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-google-maps {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+            .btn-google-maps:hover {
+                background-color: var(--accent-hover);
+                transform: translateY(-2px);
+            }
+
+        .btn-apple-maps {
+            background-color: #262a33;
+            color: #fff;
+            border: 1px solid #3a3f4d;
+        }
+
+            .btn-apple-maps:hover {
+                background-color: #323744;
+                border-color: var(--text-muted);
+            }
+
+        .map-visual-side {
+            position: relative;
+            background: linear-gradient(rgba(15,17,21,0.4), rgba(15,17,21,0.6)), url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-pin-badge {
+            background: rgba(24, 27, 32, 0.95);
+            border: 2px solid var(--accent-color);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+            .map-pin-badge i {
+                font-size: 2.2rem;
+                color: var(--accent-color);
+                margin-bottom: 8px;
+                display: block;
+            }
+
+        /* SIKÇA SORULAN SORULAR */
+        .faq-section {
+            background-color: rgba(24, 27, 32, 0.5);
+            padding: 4rem 5%;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid #2a2e35;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+            .faq-item:hover {
+                border-color: var(--accent-color);
+            }
+
+        .faq-question {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* SORU SORMA FORMU ALANI */
+        .ask-section {
+            padding: 4rem 5%;
+            background-color: var(--bg-color);
+            border-top: 1px solid #2a2e35;
+        }
+
+        .ask-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #2a2e35;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: var(--text-color);
+                font-weight: 600;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            border: 1px solid #333742;
+            background-color: #111317;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+            .form-control:focus {
+                border-color: var(--accent-color);
+            }
+
+            .form-control.input-error {
+                border-color: #ff3333;
+            }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .error-message {
+            display: none;
+            background-color: rgba(255, 51, 51, 0.15);
+            border: 1px solid #ff3333;
+            color: #ff6666;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .submit-btn:hover {
+                background-color: var(--accent-hover);
+            }
+
+        /* İLETİŞİM ALANI */
+        .contact-section {
+            background-color: var(--card-bg);
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid #2a2e35;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .info-box {
+            background: #111317;
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid #222;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .info-box i {
+                color: var(--accent-color);
+            }
+
+                .info-box i.fa-instagram {
+                    color: #e1306c;
+                }
+
+                .info-box i.fa-facebook {
+                    color: #1877f2;
+                }
+
+            .info-box a {
+                color: var(--text-color);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .info-box a:hover {
+                    color: var(--accent-color);
+                }
+
+        /* FOOTER */
+        footer {
+            background-color: #090a0d;
+            text-align: center;
+            padding: 1.5rem 5%;
+            border-top: 1px solid #1a1d24;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* MOBİL SABİT BAR */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+        }
+
+            .mobile-bar a {
+                flex: 1;
+                text-align: center;
+                padding: 0.8rem 0.2rem;
+                font-weight: bold;
+                text-decoration: none;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                font-size: 0.82rem;
+            }
+
+        .btn-call {
+            background-color: #d32f2f;
+        }
+
+        .btn-wp {
+            background-color: #25d366;
+        }
+
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .btn-fb {
+            background-color: #1877f2;
+        }
+
+        /* MOBİL UYUMLULUK */
+        @media (max-width: 1024px) {
+            .header-middle {
+                display: none;
+            }
+
+            .map-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: 80px;
+                padding: 0.8rem 2% 0.8rem 0;
+            }
+
+            .logo-img {
+                height: 65px;
+                max-width: 230px;
+            }
+
+            .slide-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .slide-content p {
+                font-size: 0.95rem;
+            }
+
+            .slider-container {
+                height: 350px;
+            }
+
+            .prev, .next {
+                display: none;
+            }
+
+            .mobile-bar {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 55px;
+            }
+
+            .ask-container {
+                padding: 1.5rem;
+            }
+
+            .map-info-side {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="#" class="logo-container">
+            <img src="images/logo.png" alt="Oto Rekor Logo" class="logo-img">
+        </a>
+
+        <!-- ÜST BAR ORTA ALAN (NAVİGASYON, CANLI SAAT & KONUM) -->
+        <div class="header-middle">
+            <ul class="nav-links">
+                <li><a href="#hizmetler">Hizmetler</a></li>
+                <li><a href="#saatler">Çalışma Saatleri</a></li>
+                <li><a href="#harita">Konum</a></li>
+                <li><a href="#sss">SSS</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+
+            <!-- CANLI ÇALIŞMA SAATİ KUTUSU -->
+            <div class="header-status-box">
+                <i class="fa-regular fa-clock"></i>
+                <div class="header-status-text">
+                    <strong id="liveStatusTitle">Yükleniyor...</strong>
+                    <span id="liveStatusDesc">Çalışma saatleri kontrol ediliyor</span>
+                </div>
+            </div>
+
+            <!-- HARİTADA GÖSTER BUTONU -->
+            <a href="https://maps.google.com/?q=Hac%C4%B1kara,+Tamirciler+1.+Sk.+No:36,+06730+Beypazar%C4%B1/Ankara" target="_blank" class="header-map-btn">
+                <i class="fa-solid fa-map-location-dot"></i> Haritada Aç
+            </a>
+        </div>
+
+        <a href="tel:05442292999" class="contact-btn">
+            <i class="fa-solid fa-phone"></i> 0544 229 29 99
+        </a>
+    </header>
+
+    <!-- SLIDER -->
+    <div class="slider-container">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Profesyonel Hidrolik & Rekor Presleme</h1>
+                <p>Yüksek basınca dayanıklı endüstriyel ve araç hortum çözümleri.</p>
+                <a href="tel:05442292999" class="contact-btn">Bizi Arayın</a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Araç Klima & Direksiyon Hortum Tamiri</h1>
+                <p>Orijinal standartlarda hızlı ve garantili imalat/tamir servisi.</p>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>İş Makinesi & Sanayi Hortumları</h1>
+                <p>Kepçe, traktör ve sanayi makineleri için özel rekor ve hortum üretimi.</p>
+            </div>
+        </div>
+
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- İSTATİSTİK / GÜVEN BANDI -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3><i class="fa-solid fa-screwdriver-wrench"></i> Hızlı Servis</h3>
+                <p>Aynı Gün Teslimat ve İmalat</p>
+            </div>
+            <div class="stat-item">
+                <h3><i class="fa-solid fa-shield-halved"></i> Garantili İşçilik</h3>
+                <p>Yüksek Basınca Dayanıklı Malzeme</p>
+            </div>
+            <div class="stat-item">
+                <h3><i class="fa-solid fa-truck-pickup"></i> Sanayi Çözümleri</h3>
+                <p>Araç, İş Makinesi ve Sanayi Tipleri</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HİZMETLERİMİZ -->
+    <section class="services" id="hizmetler">
+        <h2 class="section-title">Hizmetlerimiz</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-gears"></i>
+                <h3>Hidrolik Hortum Presleme</h3>
+                <p>Tüm marka ve modeller için yüksek basınca dayanıklı hidrolik hortum imalatı ve presleme işlemi.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-snowflake"></i>
+                <h3>Klima & Direksiyon Hortumları</h3>
+                <p>Oto klima boruları, direksiyon hidrolik hortumlarının sızdırmaz garantili tamiri ve yenilenmesi.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-truck-monster"></i>
+                <h3>İş Makinesi Hortumları</h3>
+                <p>Kepçe, dozer, vinç ve tarım makinelerine özel rekor çeşitleri ve pres çözümleri.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÇALIŞMA SAATLERİ (MODERN & DİNAMİK BÖLÜM) -->
+    <section class="hours-section" id="saatler">
+        <h2 class="section-title">Çalışma Saatlerimiz</h2>
+        <div class="hours-container">
+            <div class="hours-list">
+                <div class="hours-row" id="row-weekday">
+                    <span class="day-title">
+                        <i class="fa-regular fa-calendar-check" style="color: var(--accent-color);"></i> Pazartesi - Cuma
+                    </span>
+                    <span>08:00 - 19:00 <span class="badge badge-open">AÇIK</span></span>
+                </div>
+                <div class="hours-row" id="row-saturday">
+                    <span class="day-title">
+                        <i class="fa-regular fa-calendar-check" style="color: var(--accent-color);"></i> Cumartesi
+                    </span>
+                    <span>08:00 - 19:00 <span class="badge badge-open">AÇIK</span></span>
+                </div>
+                <div class="hours-row sunday" id="row-sunday">
+                    <span class="day-title">
+                        <i class="fa-regular fa-calendar-xmark" style="color: var(--red-color);"></i> Pazar
+                    </span>
+                    <span>Kapalı <span class="badge badge-closed">KAPALI</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ŞIK HARİTA & YOL TARİFİ BÖLÜMÜ (YENİ) -->
+    <section class="map-section" id="harita">
+        <h2 class="section-title">Dükkan Konumu & Yol Tarifi</h2>
+
+        <div class="map-card">
+            <div class="map-info-side">
+                <h3>Atölyemize Kolayca Ulaşın</h3>
+                <div class="map-address-text">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>Oto Rekor & Hidrolik Hortum Pres</strong><br>
+                        Hacıkara Mah. Tamirciler 1. Sk. No:36<br>
+                        Beypazarı Sanayi Sitesi / Ankara
+                    </div>
+                </div>
+
+                <div class="map-buttons">
+                    <a href="https://maps.google.com/?q=Hac%C4%B1kara,+Tamirciler+1.+Sk.+No:36,+06730+Beypazar%C4%B1/Ankara" target="_blank" class="map-btn btn-google-maps">
+                        <i class="fa-solid fa-route"></i> Google Maps'te Yol Tarifi Al
+                    </a>
+                    <a href="http://maps.apple.com/?q=Hac%C4%B1kara,+Tamirciler+1.+Sk.+No:36,+06730+Beypazar%C4%B1/Ankara" target="_blank" class="map-btn btn-apple-maps">
+                        <i class="fa-brands fa-apple"></i> Apple Haritalar'da Aç
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-visual-side">
+                <div class="map-pin-badge">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <strong style="color: #fff; font-size: 1.1rem; display: block;">Beypazarı Sanayi Sitesi</strong>
+                    <span style="color: var(--text-muted); font-size: 0.85rem;">Tamirciler 1. Sokak No:36</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIKÇA SORULAN SORULAR (SSS) -->
+    <section class="faq-section" id="sss">
+        <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+        <div class="faq-container">
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Hangi tür hortum ve rekorların tamirini yapıyorsunuz?
+                </div>
+                <div class="faq-answer">
+                    Otomobil klima ve direksiyon hidrolik hortumları, iş makineleri (kepçe, dozer, traktör), sanayi pres hortumları ve yıkama makinesi hortumlarının imalatı ve tamirini yapmaktayız.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Hortum presleme veya tamir işlemi ne kadar sürer?
+                </div>
+                <div class="faq-answer">
+                    Getirdiğiniz numune veya ölçülere göre presleme ve tamir işlemleri genellikle 15 - 30 dakika içerisinde hızlıca tamamlanıp teslim edilmektedir.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Preslenen hortumlar yüksek basınca dayanıklı mıdır?
+                </div>
+                <div class="faq-answer">
+                    Evet, atölyemizde kullandığımız tüm hortum ve rekor bileşenleri uluslararası basınca dayanıklılık standartlarına uygun olarak preslenmektedir.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SORU SORMA ALANI -->
+    <section class="ask-section">
+        <h2 class="section-title">Aklınıza Takılanı Sorun</h2>
+        <div class="ask-container">
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <form id="askForm" onsubmit="sendQuestion(event)" novalidate>
+                <div class="form-group">
+                    <label for="name">Adınız Soyadınız</label>
+                    <input type="text" id="name" class="form-control" placeholder="Örn: Ahmet Yılmaz">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon Numaranız</label>
+                    <input type="text" id="phone" class="form-control" placeholder="Örn: 05442292999">
+                </div>
+                <div class="form-group">
+                    <label for="message">Sorunuz / Mesajınız</label>
+                    <textarea id="message" class="form-control" placeholder="Hangi işlem veya hortum hakkında bilgi almak istiyorsunuz?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Soruyu WhatsApp ile Gönder
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM ALANI -->
+    <section class="contact-section" id="iletisim">
+        <h2 class="section-title">Dükkanımıza Bekleriz</h2>
+        <p style="color: var(--text-muted);">Acil hortum patlaması, imalat veya bilgi talepleriniz için bize ulaşın.</p>
+
+        <div class="contact-info">
+            <div class="info-box">
+                <i class="fa-solid fa-location-dot"></i> Hacıkara, Tamirciler 1. Sk. No:36, 06730 Beypazarı/Ankara
+            </div>
+            <div class="info-box">
+                <i class="fa-solid fa-phone"></i> <a href="tel:05442292999">0544 229 29 99</a>
+            </div>
+            <div class="info-box">
+                <i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/ercankuren_/" target="_blank">@ercankuren_</a>
+            </div>
+            <div class="info-box">
+                <i class="fa-brands fa-facebook"></i> <a href="https://www.facebook.com/ekuren" target="_blank">Ercan Küren</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Oto Rekor & Hidrolik Hortum Pres Servisi - Beypazarı / Ankara. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- MOBİL ALT SABİT BAR -->
+    <div class="mobile-bar">
+        <a href="tel:05442292999" class="btn-call"><i class="fa-solid fa-phone"></i> Ara</a>
+        <a href="https://wa.me/905442292999" class="btn-wp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WP</a>
+        <a href="https://www.instagram.com/ercankuren_/" class="btn-insta" target="_blank"><i class="fa-brands fa-instagram"></i> Insta</a>
+        <a href="https://www.facebook.com/ekuren" class="btn-fb" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+    </div>
+
+    <!-- JAVASCRIPT KODLARI -->
+    <script>
+        // DİNAMİK GÜN VE ÇALIŞMA SAATİ KONTROLÜ
+        document.addEventListener("DOMContentLoaded", function () {
+            const now = new Date();
+            const day = now.getDay(); // 0: Pazar, 1: Pazartesi, ..., 6: Cumartesi
+
+            const liveTitle = document.getElementById("liveStatusTitle");
+            const liveDesc = document.getElementById("liveStatusDesc");
+
+            const daysMap = {
+                0: "Pazar",
+                1: "Pazartesi",
+                2: "Salı",
+                3: "Çarşamba",
+                4: "Perşembe",
+                5: "Cuma",
+                6: "Cumartesi"
+            };
+
+            const todayName = daysMap[day];
+
+            if (day === 0) {
+                // PAZAR GÜNÜ
+                liveTitle.innerHTML = `BUGÜN KAPALI <span class="badge badge-closed">KAPALI</span>`;
+                liveDesc.innerText = `Pazartesi 08:00'de hizmetinizdeyiz`;
+
+                const rowSunday = document.getElementById("row-sunday");
+                rowSunday.classList.add("is-today");
+                rowSunday.querySelector(".day-title").innerHTML += ` <span class="badge badge-today">(Bugün)</span>`;
+            } else {
+                // HAFTA İÇİ VE CUMARTESİ
+                liveTitle.innerHTML = `BUGÜN AÇIK <span class="badge badge-open">AÇIK</span>`;
+                liveDesc.innerText = `Bugün 08:00 - 19:00 arası açığız`;
+
+                if (day === 6) {
+                    // Cumartesi
+                    const rowSat = document.getElementById("row-saturday");
+                    rowSat.classList.add("is-today");
+                    rowSat.querySelector(".day-title").innerHTML += ` <span class="badge badge-today">(Bugün)</span>`;
+                } else {
+                    // Pazartesi - Cuma
+                    const rowWk = document.getElementById("row-weekday");
+                    rowWk.classList.add("is-today");
+                    rowWk.querySelector(".day-title").innerHTML += ` <span class="badge badge-today">(Bugün - ${todayName})</span>`;
+                }
+            }
+        });
+
+        // SLIDER KODU
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            slideIndex = index;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+
+            slides[slideIndex].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            showSlide(slideIndex + direction);
+        }
+
+        setInterval(() => {
+            changeSlide(1);
+        }, 4000);
+
+        // FORM DOĞRULAMA VE WHATSAPP GÖNDERİMİ
+        function sendQuestion(event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const messageInput = document.getElementById('message');
+            const errorBox = document.getElementById('errorMessage');
+
+            const name = nameInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const message = messageInput.value.trim();
+
+            errorBox.style.display = 'none';
+            nameInput.classList.remove('input-error');
+            phoneInput.classList.remove('input-error');
+            messageInput.classList.remove('input-error');
+
+            if (name === "") {
+                errorBox.innerHTML = "❌ Lütfen adınızı ve soyadınızı giriniz!";
+                errorBox.style.display = 'flex';
+                nameInput.classList.add('input-error');
+                nameInput.focus();
+                return;
+            }
+
+            const phoneRegex = /^[0-9]+$/;
+            if (phone === "" || !phoneRegex.test(phone)) {
+                errorBox.innerHTML = "⚠️ Telefon numarasını hatalı girdiniz! Lütfen sadece rakam kullanın.";
+                errorBox.style.display = 'flex';
+                phoneInput.classList.add('input-error');
+                phoneInput.focus();
+                return;
+            }
+
+            if (message === "") {
+                errorBox.innerHTML = "📝 Lütfen sormak istediğiniz soruyu veya mesajınızı yazınız!";
+                errorBox.style.display = 'flex';
+                messageInput.classList.add('input-error');
+                messageInput.focus();
+                return;
+            }
+
+            const whatsappText = `Merhaba, web sitenizden bir soru var:%0A%0A*Ad Soyad:* ${name}%0A*Telefon:* ${phone}%0A*Soru:* ${message}`;
+            window.open(`https://wa.me/905442292999?text=${whatsappText}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
