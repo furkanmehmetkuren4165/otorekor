@@ -812,6 +812,23 @@
             .map-info-side {
                 padding: 1.8rem 1.2rem;
             }
+            @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding: 1rem 2%;
+    }
+    .logo-img {
+        max-width: 180px;
+        height: auto;
+    }
+    .header-middle, .header-status-box {
+        width: 100%;
+        justify-content: center;
+    }
+}
         }
     </style>
 </head>
@@ -921,6 +938,11 @@
                 <h3>İş Makinesi Hortumları</h3>
                 <p>Kepçe, dozer, vinç ve tarım makinelerine özel rekor çeşitleri ve pres çözümleri.</p>
             </div>
+            <div class="card">
+    <i class="fa-solid fa-wrench" style="font-size: 2.5rem; color: #ff9800; margin-bottom: 1rem;"></i>
+    <h3>Oto Rekor & Özel İmalat</h3>
+    <p>Özel ölçü rekor imalatı, yüksek basınca dayanıklı rekor tamiri ve rekor değişimi hizmetleri.</p>
+</div>
         </div>
     </section>
 
@@ -1203,7 +1225,12 @@
             const whatsappText = `Merhaba, web sitenizden bir soru var:%0A%0A*Ad Soyad:* ${name}%0A*Telefon:* ${phone}%0A*Soru:* ${message}`;
             window.open(`https://wa.me/905442292999?text=${whatsappText}`, '_blank');
         }
+        
     </script>
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; border-top: 1px solid #333; font-size: 0.9rem; flex-wrap: wrap; gap: 10px;">
+    <p>© 2026 Oto Rekor. Tüm Hakları Saklıdır.</p>
+    <p>Tasarım & Geliştirme: <strong style="color: #ff9800;">Furkan Mehmet Küren</strong></p>
+</div>
 
 </body>
 </html>
