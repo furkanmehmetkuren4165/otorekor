@@ -62,12 +62,28 @@
             display: block;
         }
 
-        /* HEADER ORTA ALAN */
-        .header-middle {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+       header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%;
+    background: #111317;
+    border-bottom: 2px solid #ff9800;
+}
+
+.header-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-extra-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
 
         .nav-links {
             display: flex;
@@ -115,6 +131,28 @@
             font-size: 0.78rem;
             color: var(--text-muted);
         }
+        
+        /* MOBİL BİLGİ VE MENÜ UYUMU */
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .header-middle {
+        width: 100%;
+    }
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 0;
+    }
+    .header-extra-info {
+        flex-wrap: wrap;
+    }
+}
 
         /* HEADER KONUM BUTONU */
         .header-map-btn {
