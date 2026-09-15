@@ -771,11 +771,13 @@
         }
 
         @media (max-width: 768px) {
-            header {
-                height: 80px;
-                padding: 0.8rem 2% 0.8rem 0;
-            }
-
+    header {
+        min-height: 80px;
+        height: auto;
+        padding: 0.8rem 2%;
+        flex-direction: column;
+        gap: 10px;
+    }
             .logo-img {
                 height: 65px;
                 max-width: 230px;
@@ -945,6 +947,27 @@
 </div>
         </div>
     </section>
+    <!-- ŞUBELERİMİZ BÖLÜMÜ -->
+<section id="subelerimiz" style="padding: 40px 5%; text-align: center;">
+    <h2 class="section-title" style="color: #ff9800; margin-bottom: 25px;">Şubelerimiz</h2>
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        
+        <!-- Şube 1 / Merkez -->
+        <div style="background: #181b20; border: 1px solid #333; border-radius: 10px; padding: 20px; flex: 1; min-width: 280px; max-width: 450px; text-align: left;">
+            <h3 style="color: #ff9800; margin-bottom: 10px;"><i class="fa-solid fa-store"></i> Şube 1 (Merkez)</h3>
+            <p style="margin-bottom: 8px; color: #ccc;"><i class="fa-solid fa-location-dot" style="color: #ff9800;"></i> Demirciler Sanayi Sitesi 4. Cad No:22, Beypazarı / Ankara</p>
+            <p style="color: #ccc;"><i class="fa-solid fa-phone" style="color: #ff9800;"></i> <strong>Tel:</strong> 0544 229 29 99</p>
+        </div>
+
+        <!-- Şube 2 / Yukarı Sanayi -->
+        <div style="background: #181b20; border: 1px solid #333; border-radius: 10px; padding: 20px; flex: 1; min-width: 280px; max-width: 450px; text-align: left;">
+            <h3 style="color: #ff9800; margin-bottom: 10px;"><i class="fa-solid fa-store"></i> Şube 2 (Yukarı Sanayi)</h3>
+            <p style="margin-bottom: 8px; color: #ccc;"><i class="fa-solid fa-location-dot" style="color: #ff9800;"></i> Demirciler Sanayi Sitesi 3. Cad No:8, 06730 Beypazarı / Ankara</p>
+            <p style="color: #ccc;"><i class="fa-solid fa-phone" style="color: #ff9800;"></i> <strong>Tel:</strong> 0544 229 29 99</p>
+        </div>
+
+    </div>
+</section>
 
     <!-- ÇALIŞMA SAATLERİ (MODERN & DİNAMİK BÖLÜM) -->
     <section class="hours-section" id="saatler">
